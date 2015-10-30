@@ -16,14 +16,12 @@ RUN apt-get install -qq libfontconfig1 libfontconfig1-dev
 RUN apt-get install -qq wget
 
 # Get it from the PhantomJS website.
-RUN cd ~
-RUN export PHANTOM_JS="phantomjs-1.9.8-linux-x86_64"
-RUN wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2
-RUN tar xvjf $PHANTOM_JS.tar.bz2
+RUN cd /usr/local/share 
+RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2
+RUN tar xvjf phantomjs-1.9.8-linux-x86_64.tar.bz2
 
-# move Phantomjs folder to /usr/local/share/ and create a symlink
-RUN mv $PHANTOM_JS /usr/local/share
-RUN ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
+# create a symlink
+RUN ln -sf /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/local/bin
 
 # Default command
 CMD ["/usr/local/bin/phantomjs"]
