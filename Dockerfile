@@ -20,10 +20,8 @@ RUN cd /usr/local/share
 RUN wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2
 RUN tar xvjf phantomjs-1.9.8-linux-x86_64.tar.bz2
 
-RUN mkdir /usr/local/bin
-
 # create a symlink
-RUN ln -sf /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/local/bin
+RUN ln -sf /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/local/bin/
 
 # Default command
 CMD ["/usr/local/bin/phantomjs"]
