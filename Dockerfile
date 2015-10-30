@@ -2,15 +2,15 @@ FROM ubuntu:14.04
 MAINTAINER Kalyn Valentyn <kalyn@litslink.com>
 
 # Env
-ENV PHANTOMJS_VERSION 1.9.8git init
+ENV PHANTOMJS_VERSION 1.9.8
 
 # Install or update to the latest system software
-RUN apt-get update
-RUN apt-get install build-essential chrpath libssl-dev libxft-dev
+RUN apt-get update -qq
+RUN apt-get install -qq build-essential chrpath libssl-dev libxft-dev
 
 # Install these packages needed by PhantomJS to work correctly.
-RUN apt-get install libfreetype6 libfreetype6-dev
-RUN apt-get install libfontconfig1 libfontconfig1-dev
+RUN apt-get install -qq libfreetype6 libfreetype6-dev
+RUN apt-get install -qq libfontconfig1 libfontconfig1-dev
 
 # Get it from the PhantomJS website.
 RUN cd ~
