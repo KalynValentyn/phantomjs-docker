@@ -1,5 +1,4 @@
-FROM ubuntu:14.04
-MAINTAINER Kalyn Valentyn <kalyn@litslink.com>
+FROM neo9polska/nodejs-bower-gulp
 
 # Env
 ENV PHANTOMJS_VERSION 1.9.8
@@ -22,6 +21,13 @@ RUN tar xvjf phantomjs-1.9.8-linux-x86_64.tar.bz2
 
 # create a symlink
 RUN ln -sf /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/local/bin/
+
+# Clean installiation hash
+RUN  apt-get autoremove -y 
+RUN  apt-get clean all
+
+# Make phantomjs as Node module.
+RUN npm install phantom
 
 # Default command
 CMD ["/usr/local/bin/phantomjs"]
