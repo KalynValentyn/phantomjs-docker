@@ -30,6 +30,3 @@ RUN  apt-get clean all
 
 # Make phantomjs as Node module.
 RUN npm install phantom
-
-# Default command
-CMD ["/usr/local/bin/phantomjs"]
