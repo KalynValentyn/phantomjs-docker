@@ -16,8 +16,7 @@ RUN apt-get install -qq wget
 
 # Get it from the PhantomJS website.
 RUN wget -P /usr/local/share/ https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2
-RUN cd /usr/local/share 
-RUN tar xvjf phantomjs-1.9.8-linux-x86_64.tar.bz2
+RUN cd /usr/local/share && \ tar xvjf phantomjs-1.9.8-linux-x86_64.tar.bz2
 
 # create a symlink
 RUN ln -sf /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
